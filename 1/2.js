@@ -1,5 +1,4 @@
 let a = Number(prompt("Первое число: "));
-
 if (isNaN(a)) {
   throw new Error("Некорректный ввод!");
 }
