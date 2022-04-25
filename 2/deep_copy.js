@@ -12,7 +12,7 @@ function makeObjectDeepCopy(original) {
 
   if (original instanceof Object) {
     return Object.keys(original).reduce((newObj, key) => {
-      newObj[key] = deepCopy(original[key]);
+      newObj[key] = makeObjectDeepCopy(original[key]);
       return newObj;
     }, {});
   }
