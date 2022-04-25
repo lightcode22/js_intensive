@@ -5,7 +5,7 @@ function makeObjectDeepCopy(original) {
 
   if (original instanceof Array) {
     return original.reduce((arr, item, i) => {
-      arr[i] = deepCopy(item);
+      arr[i] = makeObjectDeepCopy(item);
       return arr;
     }, []);
   }
