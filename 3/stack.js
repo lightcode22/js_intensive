@@ -39,7 +39,7 @@ class Stack {
     for (let i = 0; i < this.size; i++) {
       output.push(this.storage[i]);
     }
-    return output.join(", ");
+    console.log(output.join(", "));
   }
 
   clear() {
