@@ -1,6 +1,6 @@
 class Stack {
   constructor() {
-    this.storage = [];
+    this.storage = {};
     this.size = 0;
   }
 
@@ -17,8 +17,8 @@ class Stack {
     }
 
     let popped = this.storage[this.size - 1];
+    delete this.storage[this.size - 1];
     this.size--;
-    this.storage.length = this.size;
     return popped;
   }
 
@@ -35,12 +35,11 @@ class Stack {
   }
 
   print() {
-    // not using the original array because imitating stack structure
     let output = [];
     for (let i = 0; i < this.size; i++) {
       output.push(this.storage[i]);
     }
-    console.log(output.join(", "));
+    return output.join(", ");
   }
 
   clear() {
