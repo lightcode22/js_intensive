@@ -110,8 +110,6 @@ class LinkedList {
 
     for (let i = this.size - 1; i > 0; i--) {
       currentNode = this.head;
-      currentValue = undefined;
-      nextValue = undefined;
 
       while (currentNode.pointer !== null) {
         if (desc) {
@@ -136,7 +134,6 @@ class LinkedList {
 
     for (let i = this.size - 1; i > 0; i--) {
       currentNode = this.head;
-      nextValue = undefined;
 
       let count = 0;
 
