@@ -105,6 +105,37 @@ class LinkedList {
     return currentNode.data;
   }
 
+  sort(desc = false) {
+    let currentNode;
+    let currentValue;
+    let nextValue;
+
+    for (let i = 0; i < this.size - 1; i++) {
+      currentNode = this.head;
+      currentValue = undefined;
+      nextValue = undefined;
+
+      let end = 0;
+      while (currentNode.pointer !== null) {
+        if (i < this.size - 1 - end) {
+          if (desc) {
+            [currentNode.data, currentNode.pointer.data] = [
+              currentNode.data,
+              currentNode.pointer.data,
+            ].sort((a, b) => (a > b ? -1 : 1));
+          } else {
+            [currentNode.data, currentNode.pointer.data] = [
+              currentNode.data,
+              currentNode.pointer.data,
+            ].sort((a, b) => (a > b ? 1 : -1));
+          }
+        }
+        currentNode = currentNode.pointer;
+        end++;
+      }
+    }
+  }
+
   clear() {
     this.head = null;
     this.size = 0;
@@ -135,12 +166,13 @@ class LinkedList {
 //  insertAt
 //  removeAt
 //  getAt (получить значение узла по индексу)
+//  sort(true/false) -> true = descending, false (default) = ascending
 //  clear (обнулить список)
 //  print (вывести строкой значения всех узлов)
 
 const linked = new LinkedList();
 
-linked.append("Жучка");
+linked.append("жучка");
 linked.append("внучка");
 linked.prepend("кошка");
 linked.append("бабка");
