@@ -110,28 +110,50 @@ class LinkedList {
     let currentValue;
     let nextValue;
 
-    for (let i = 0; i < this.size - 1; i++) {
+    for (let i = this.size - 1; i > 0; i--) {
       currentNode = this.head;
       currentValue = undefined;
       nextValue = undefined;
 
-      let end = 0;
       while (currentNode.pointer !== null) {
-        if (i < this.size - 1 - end) {
-          if (desc) {
-            [currentNode.data, currentNode.pointer.data] = [
-              currentNode.data,
-              currentNode.pointer.data,
-            ].sort((a, b) => (a > b ? -1 : 1));
-          } else {
-            [currentNode.data, currentNode.pointer.data] = [
-              currentNode.data,
-              currentNode.pointer.data,
-            ].sort((a, b) => (a > b ? 1 : -1));
-          }
+        if (desc) {
+          [currentNode.data, currentNode.pointer.data] = [
+            currentNode.data,
+            currentNode.pointer.data,
+          ].sort((a, b) => (a > b ? -1 : 1));
+        } else {
+          [currentNode.data, currentNode.pointer.data] = [
+            currentNode.data,
+            currentNode.pointer.data,
+          ].sort((a, b) => (a > b ? 1 : -1));
         }
+
         currentNode = currentNode.pointer;
-        end++;
+      }
+    }
+  }
+
+  reverse() {
+    let currentNode;
+    let currentValue;
+    let nextValue;
+
+    for (let i = this.size - 1; i > 0; i--) {
+      currentNode = this.head;
+      currentValue = undefined;
+      nextValue = undefined;
+
+      let count = 0;
+
+      while (count < i) {
+        [currentNode.data, currentNode.pointer.data] = [
+          currentNode.pointer.data,
+          currentNode.data,
+        ];
+
+        currentNode = currentNode.pointer;
+
+        count++;
       }
     }
   }
