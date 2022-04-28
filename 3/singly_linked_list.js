@@ -107,8 +107,6 @@ class LinkedList {
 
   sort(desc = false) {
     let currentNode;
-    let currentValue;
-    let nextValue;
 
     for (let i = this.size - 1; i > 0; i--) {
       currentNode = this.head;
@@ -135,12 +133,9 @@ class LinkedList {
 
   reverse() {
     let currentNode;
-    let currentValue;
-    let nextValue;
 
     for (let i = this.size - 1; i > 0; i--) {
       currentNode = this.head;
-      currentValue = undefined;
       nextValue = undefined;
 
       let count = 0;
@@ -152,7 +147,6 @@ class LinkedList {
         ];
 
         currentNode = currentNode.pointer;
-
         count++;
       }
     }
