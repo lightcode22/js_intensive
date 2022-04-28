@@ -5,7 +5,8 @@ class Stack {
   }
 
   push(data) {
-    this.storage[this.size++] = data;
+    this.storage[this.size] = data;
+    this.size++;
     return this.storage;
   }
 
@@ -15,7 +16,8 @@ class Stack {
       return;
     }
 
-    let popped = this.storage[--this.size];
+    let popped = this.storage[this.size - 1];
+    this.size--;
     this.storage.length = this.size;
     return popped;
   }
